@@ -1,0 +1,18 @@
+<h1>About</h1>
+
+
+
+<% @sitepages.each do |sitepage| %>
+
+
+    <%= image_tag sitepage.image_url %>
+    <%= sitepage.content %><br/>
+  <h4>  <%= sitepage.title %></h4>
+   <h4> <%= mail_to  sitepage.maillink, 'Send us an email.' %></h4>
+
+<% end %>
+
+
+<br />
+
+

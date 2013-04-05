@@ -1,4 +1,21 @@
 Jasbooks::Application.routes.draw do
+  
+  resources :sitepages
+
+
+  root :to => "books#index"
+
+  resources :cart_items
+
+
+  resources :carts
+
+  match "add_book/:id" => "cart#add_book", :via=>:get,:as=> "add_book"
+  match "about" =>  "sitepages#index"
+
+  resources :categories
+
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config

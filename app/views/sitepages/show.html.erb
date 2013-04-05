@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @sitepage.title %>
+</p>
+
+<p>
+  <b>Maillink:</b>
+  <%= @sitepage.maillink %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @sitepage.image_url %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @sitepage.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_sitepage_path(@sitepage) %> |
+<%= link_to 'Back', sitepages_path %>

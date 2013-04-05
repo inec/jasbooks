@@ -13,13 +13,13 @@
              
 
 <p>
-  <b>List price:</b>
-  <%= book.list_price %>
+  <b>Price:</b>
+  <%=  number_to_currency(book.list_price) %>
 </p>
               </div>
-              <a class="btn" href="#">
-                buy »
-              </a>
+             
+             <%= link_to   'buy »', cart_items_path(:book_id =>book),:class => "btn" %>
+             
             </div>
 
 
