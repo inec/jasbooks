@@ -2,7 +2,9 @@ class CartItemsController < InheritedResources::Base
 	def create
 	@cart = current_cart
 	#book = Book.find((params[:book_id])
-	@cart_item = @cart.cart_items.build(:book_id => params[:book_id])
+	#@cart_item = @cart.cart_items.build(:book_id => params[:book_id])
+	@cart_item = @cart.add_book(params[:book_id])
+
   respond_to do |format|
 		if @cart_item.save
 		format.html { redirect_to(@cart_item.cart,:notice => 'Line item was successfully created.') }

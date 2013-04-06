@@ -1,21 +1,9 @@
-<h1>Listing carts</h1>
+<p id="notice"><%= notice %></p>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @carts.each do |cart| %>
-  <tr>
-    <td><%= link_to 'Show', cart %></td>
-    <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-    <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<h2>shopping Cart</h2>
+<ul>
+<% @cart.cart_items.each do |item| %>
+<li><%= item.quantity %> &times; <%= item.book.title %>  <%= number_to_currency(item.book.list_price) %>
+</li>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Cart', new_cart_path %>
+</ul>
