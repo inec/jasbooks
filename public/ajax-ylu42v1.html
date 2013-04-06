@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function city_change(x)
+{
+	  var city_dropdown=document.getElementById("citydd");
+	 var city_selected = city_dropdown.options[city_dropdown.selectedIndex].innerHTML;
+
+	//  console.log("city_selecteda"+city_dropdown.options[0].innerHTML);
+	 //var v = province_dropdown.optiones
+console.log("Thefunctionvalue is: " + city_selected);
+var city_nodes=x.getElementsByTagName("name");
+//console.log(city_nodes.length);
+			 	for (var i=0;i<city_nodes.length;i++)
+			 	{
+			 		//console.dirxml(city_nodes[i].childNodes[0].nodeValue);
+/*			 		if (city_nodes[i].childNodes[0].nodeValue==city_selected)
+			 		{
+			 			console.dirxml(city_nodes[i].firstChild.nodeValue;);
+			 		};// end if*/
+
+
+			 	};
+
+};
+function loadXMLDoc()
+{
+ xmlhttp=null;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+if (xmlhttp!=null)
+  {
+  xmlhttp.onreadystatechange=function()
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+      xmlDoc=xmlhttp.responseXML;
+      var txt="";
+
+	  var province_dropdown=document.getElementById("provincedd");
+	  
+	  //province_dropdown.addEventListener('change', province_change, false);
+	  province_dropdown.addEventListener('change', function()
+	  {
+	 
+	 var province_selected = this.options[this.selectedIndex].value;
+
+	 	for (i=0;i<x.length;i++)
+        {
+		
+        
+		if (x[i].childNodes[0].nodeValue==province_selected){
+
+		var city_name= x[i].getElementsByTagName("name");
+
+		
+        
+				var city_dropdown=document.getElementById("citydd");
+//clear city elements
+          city_dropdown.length=1;
+          var city_option=document.getElementById("city_option1");
+           city_option.innerHTML="- Select a city -";
+     
+						 	for (var j=0;j<city_name.length;j++)
+			{
+			var city_option_element = document.createElement("option");
+			var cname=city_name[j].childNodes[0].nodeValue;
+		    city_option_element.innerHTML=cname;
+		  //  
+			city_dropdown.appendChild(city_option_element);
+		
+
+		
+		} //end of inner for
+		      var first_city=x[i].getElementsByTagName("city")[0];
+
+
+           //    console.dirxml(first_city);
+	 	var city_div=document.getElementById("cityWeather");
+                     
+
+                         //clear from previous selction
+
+						city_div.innerHTML="";
+ 
+                      for (var j=0;j<first_city.childNodes.length;j++)
+
+                      {
+                      	if (first_city.childNodes[j].nodeValue == null)
+                      	{
+
+                      		var p_element = document.createElement("p");
+
+                      		var b_element = document.createElement("b");
+                      		b_element.innerHTML=first_city.childNodes[j].tagName+": ";
+
+
+
+							p_element.appendChild(b_element);
+
+							p_element.innerHTML+=first_city.childNodes[j].firstChild.nodeValue;
+
+
+			 		 	    city_div.appendChild(p_element);
+
+                       } // end of if
+
+                      } // end of for loop to get indivisual data
+
+		
+		
+		} //end if find province
+		
+		}; //end of for loop
+	 
+		
+	city_dropdown.addEventListener('change', function() {
+
+if (this.selectedIndex != 0) {	
+	  var city_dropdown=document.getElementById("citydd");
+	 var city_selected = city_dropdown.options[city_dropdown.selectedIndex].innerHTML;
+
+var city_nodes=xmlDoc.getElementsByTagName("name");
+	for (var i=0;i<city_nodes.length;i++)
+			 	{
+
+	 		if(city_nodes[i].childNodes[0].nodeValue==city_selected)
+			 		{
+
+			 			var city_data=city_nodes[i].parentNode;
+			 			//console.dirxml(city_data);
+                         
+                         var city_div=document.getElementById("cityWeather");
+
+                       
+                       //clear
+
+                       city_div.innerHTML="";
+
+                      for (var j=0;j<city_data.childNodes.length;j++)
+
+                      {
+                      	if (city_data.childNodes[j].nodeValue == null)
+                      	{
+
+                      		var p_element = document.createElement("p");
+
+                      		var b_element = document.createElement("b");
+                      		b_element.innerHTML=city_data.childNodes[j].tagName+": ";
+
+
+
+							p_element.appendChild(b_element);
+
+							p_element.innerHTML+=city_data.childNodes[j].firstChild.nodeValue;
+
+
+			 		 	    city_div.appendChild(p_element);
+
+                       } // end of if
+
+                      } // end of for loop to get indivisual data
+
+
+			 			
+			 	
+
+
+			 		};// end if*/
+
+
+			 	};
+}
+
+
+
+}, false);
+		} // end of anonymous function
+		, false);
+		
+		
+		
+		
+		
+     var x=xmlDoc.getElementsByTagName("province");
+	  
+      for (i=0;i<x.length;i++)
+        {
+		
+
+		var option_element = document.createElement("option");
+		var pname=x[i].childNodes[0].nodeValue;
+		option_element.setAttribute("value", pname);
+		option_element.innerHTML=pname;
+		province_dropdown.appendChild(option_element);
+        }
+
+        }
+      }
+  xmlhttp.open("GET","weathernew.xml",true);
+  xmlhttp.send();
+  
+  
+ 
+
+  
+  
+  }
+else
+  {
+  alert("Your browser does not support XMLHTTP.");
+  }
+}
+
+</script>
+</head>
+<body onload="loadXMLDoc()">
+
+<h2 align="center">Select a province:</h2>
+
+
+<form name="myform" action="#" method="POST">
+<div align="center">
+<select name="mydropdown" id="provincedd">
+<option value="">  -select a province               </option>
+
+</select>
+<h2>Select a city:</h2>
+<select name="citydropdown" id="citydd">
+<option id="city_option1" value="">  -please select province first              </option>
+
+</select>
+</div>
+<div id="myDiv" ></div>
+<div id="cityWeather" align="center"></div>
+</form>
+</body>
+</html>
+
+
+

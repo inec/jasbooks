@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-
+<h2>shopping Cart</h2>
+<ul>
+<% @cart.cart_items.each do |item| %>
+<li><%= item.book.title %>  <%= number_to_currency(item.book.list_price) %>
+</li>
+<% end %>
+</ul>
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
