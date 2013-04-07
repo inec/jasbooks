@@ -1,11 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h2>shopping Cart</h2>
-<ul>
-<% @cart.cart_items.each do |item| %>
-<li><%= item.book.title %>  <%= number_to_currency(item.book.list_price) %>
-</li>
+<div class="cart_title">Your Cart</div>
+<table>
+
+<%= render @cart %>
+<% for item in @cart.cart_items %>
+<tr>
+<td><%= item.quantity %>&times;</td>
+<td><%= item.book.title %></td>
+<td class="item_price"><%= number_to_currency(item.total_price) %></td>
+</tr>
 <% end %>
-</ul>
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<tr><td colspan="2">-------------------</td></tr>
+<tr class="total_line">
+<td colspan="2">Total</td>
+<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+</tr>
+</table>
+
+
+

@@ -1,6 +1,7 @@
     <div class="container-fluid">
       <div class="row">
-        <div class="span9">
+        <div class="span10">
+          <p id="notice"><%= notice %></p>
           <div>
             <h1>
               <strong>
@@ -15,10 +16,11 @@
               All you get is this message and a barebones HTML document.
             </span>
           </div>
-          <%= paginate @books %>
+   
           <div class="row-fluid">
 
-<div class="customers">
+<div class="customers"> 
+      <%= paginate @books %>
   <%= render @books %>
 
 </div>
@@ -164,39 +166,10 @@
         </div>
         <div class="span2">
 
- <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">
-                New
-              </li>
-              <li>
-              </li>
-              <li class="">
-                <a href="#">
-                  1. Just One Night
-                </a>
-              </li>
-              <li class="">
-                <a href="#">
-                  2. Whta the most Sucesful People
-                </a>
-              </li>
-              <li class="">
-                <a href="#">
-                  3 Lean in
-                </a>
-              </li>
-              <li class="">
-                <a href="#">
-                  4.&nbsp;
-                </a>
-              </li>
-            </ul>
-          </div>
+
 
         </div>
-        <div class="span4">
-        </div>
+
       </div>
 
     </div>

@@ -15,10 +15,15 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
 
+
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @book }
-    end
+    end 
+       # rescue ActiveRecord::RecordNotFound
+
+#redirect_to book_url, :notice => 'Your cart is empty'
   end
 
   # GET /books/new
