@@ -121,7 +121,8 @@
 
         </div>
       </div>
-
+<p style="color: green"><%= flash[:notice] %></p>
+ <p style="color: red"><%= flash[:error] %></p>
              <%= yield %>
            
           <%= debug(session) if Rails.env.development? %>

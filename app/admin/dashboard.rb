@@ -15,10 +15,11 @@ ActiveAdmin.register_page "Dashboard" do
     #
     columns do
       column do
-        panel "Recent Posts" do
+        panel "Outstanding order" do
           ul do
-            Order.last(5).map do |post|
-              li link_to(post.name, admin_order_path(post))
+            Order.where(:is_outstanding=>true).map do |post|
+              li link_to(post.id, admin_order_path(post))  
+              div post.name
             end
           end
         end
@@ -32,6 +33,9 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Info" do
+          para "Welcome to ActiveAdmin."
+        end
+                panel "Info" do
           para "Welcome to ActiveAdmin."
         end
       end

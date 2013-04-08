@@ -2,6 +2,8 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
+
+   # @regrets=[abc,2]
     @books = Book.order("id").page(params[:page]).per(3)
 
     respond_to do |format|

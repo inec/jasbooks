@@ -12,12 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :book_id %><br />
-    <%= f.number_field :book_id %>
-  </div>
-  <div class="field">
-    <%= f.label :cart_id %><br />
-    <%= f.number_field :cart_id %>
+ Book: <b>
+  <%= @cart_item.book.title %></b>
+  
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
   </div>
   <div class="actions">
     <%= f.submit %>
