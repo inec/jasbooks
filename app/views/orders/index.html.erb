@@ -4,9 +4,9 @@
   <tr>
     <th>Name</th>
     <th>Address</th>
-    <th>Email</th>
+    <th>Status</th>
     <th>Pay type</th>
-    <th></th>
+    <th>Ref No.</th>
     <th></th>
     <th></th>
   </tr>
@@ -15,8 +15,16 @@
   <tr>
     <td><%= order.name %></td>
     <td><%= order.address %></td>
-    <td><%= order.email %></td>
+    <td>
+      <% if order.is_outstanding %>
+        <%= "pending !" %>
+      <% else %>
+        <%= "Finished v" %>
+      <% end %>
+
+    </td>
     <td><%= order.pay_type %></td>
+    <td><%= order.id %></td>
     <td><%= link_to 'Show', order %></td>
     
   </tr>
