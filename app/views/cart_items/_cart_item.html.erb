@@ -1,4 +1,5 @@
 <tr>
+	<td><%= link_to 'Edit', edit_cart_item_path(cart_item) %> |</td>
 <td><%= cart_item.quantity %>&times;</td>
 <td><%= cart_item.book.title %></td>
 <td class=""><%= number_to_currency(cart_item.total_price) %></td>

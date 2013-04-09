@@ -1,25 +1,14 @@
     <div class="container-fluid">
       <div class="row">
         <div class="span10">
-<p id="notice"><%= notice %></p>
+
 
 <h2>shopping Cart</h2>
-<div class="cart_title">Your Cart</div>
+
 <table>
 
 <%= render @cart %>
-<% for item in @cart.cart_items %>
-<tr>
-<td><%= item.quantity %>&times;</td>
-<td><%= item.book.title %></td>
-<td class="item_price"><%= number_to_currency(item.total_price) %></td>
-</tr>
-<% end %>
-<tr><td colspan="2">-------------------</td></tr>
-<tr class="total_line">
-<td colspan="2">Total</td>
-<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
-</tr>
+
 </table>
 </div>
 </div>
