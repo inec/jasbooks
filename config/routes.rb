@@ -18,6 +18,8 @@ Jasbooks::Application.routes.draw do
   match "add_book/:id" => "cart#add_book", :via=>:get,:as=> "add_book"
   match "about" =>  "sitepages#index"
 
+  match "store" => "store#index"
+
   resources :categories
 
 

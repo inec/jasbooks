@@ -1,5 +1,9 @@
 class StoreController < ApplicationController
   def index
-  	@products = Product.all
+
+
+  	     @books = Book.order("id").page(params[:page]).per(3)
+
+
   end
 end
