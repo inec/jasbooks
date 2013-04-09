@@ -16,7 +16,7 @@ class OrdersController < InheritedResources::Base
 
     @cart = current_cart
     #@total=@cart.total_price
-    @total=13
+    #@total=13
 
     if @cart.cart_items.empty?
       redirect_to book_url, notice: "Your cart is empty"
@@ -36,13 +36,14 @@ class OrdersController < InheritedResources::Base
     @order = Order.new(params[:order])
     @order.add_cart_items_from_cart(current_cart)
     @order.user_id=current_user.id
-    
+    @order.subtotal=current_cart.total_price
+   
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         
-        format.html { redirect_to orders_url,notice: "Your Order is empty"}
+        format.html { redirect_to orders_url,notice: "new Order is created"}
 
       else
         @cart = current_cart

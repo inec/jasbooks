@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Address</th>
     <th>Status</th>
+    <th> SubTotal </th>
     <th>Pay type</th>
     <th>Ref No.</th>
     <th></th>
@@ -17,12 +18,13 @@
     <td><%= order.address %></td>
     <td>
       <% if order.is_outstanding %>
-        <%= "pending !" %>
+        <%= "!  Pay Pending !" %>
       <% else %>
-        <%= "Finished v" %>
+        <%= " Paid v" %>
       <% end %>
 
     </td>
+     <td><%=  number_to_currency(order.subtotal) %></td>
     <td><%= order.pay_type %></td>
     <td><%= order.id %></td>
     <td><%= link_to 'Show', order %></td>
