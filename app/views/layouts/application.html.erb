@@ -81,14 +81,9 @@
                       </li>
                       </ul>
                     </div>
-                    
-          <form class="navbar-form pull-right">
-            <input name="textinput1" type="email" placeholder="Email" class="span3">
-            <input name="textinput2" type="password" placeholder="Password" class="span3    ">
-            <button class="btn">
-              Sign in
-            </button>
-          </form>
+
+                    <%= render :partial => "common/user_nav" %>
+
                    
                   </div>
                 </div>
@@ -121,12 +116,17 @@
 
         </div>
       </div>
+          <div class="container-fluid">
+      <div class="row">
+        <div class="span10">
 <p style="color: green"><%= flash[:notice] %></p>
  <p style="color: red"><%= flash[:error] %></p>
              <%= yield %>
            
           <%= debug(session) if Rails.env.development? %>
-
+</div>
+</div>
+</div>
     <style>
       
     </style>

@@ -1,0 +1,10 @@
+
+<div class="navbar-form pull-right">
+  <% if user_signed_in? %>
+ <div class="brand" >  Hi <%= current_user.email %></div>. Not you?  
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+  <%= button_to "sign in", new_user_session_path,:class=>'btn' %>
+  <% end %>
+</div>
+
