@@ -19,6 +19,7 @@ class OrdersController < InheritedResources::Base
     @order = Order.new(params[:order])
     @order.add_cart_items_from_cart(current_cart)
 
+
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])

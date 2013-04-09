@@ -1,7 +1,7 @@
 class Cart < ActiveRecord::Base
-  # attr_accessible :title, :body
+   attr_accessible :user_id
   has_many :cart_items, :dependent => :destroy
-
+  belongs_to :user
 
   def add_book(book_id)
 		current_item = cart_items.where(:book_id => book_id).first
