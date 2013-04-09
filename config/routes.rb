@@ -32,6 +32,10 @@ Jasbooks::Application.routes.draw do
   resources :books
 
 
+
+match "search" => "store#search", :as => 'search', :via => :get
+  
+  match "results" => "store#search_results", :as => 'results', :via => :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
