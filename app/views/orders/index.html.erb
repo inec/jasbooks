@@ -8,7 +8,7 @@
     <th> SubTotal </th>
     <th>Pay type</th>
     <th>Ref No.</th>
-    <th></th>
+    <th>Date</th>
     <th></th>
   </tr>
 
@@ -27,6 +27,7 @@
      <td><%=  number_to_currency(order.subtotal) %></td>
     <td><%= order.pay_type %></td>
     <td><%= order.id %></td>
+     <td><%= l(order.created_at, :format => :short) %></td>
     <td><%= link_to 'Show', order %></td>
     
   </tr>
