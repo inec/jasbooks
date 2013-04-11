@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Address</th>
-    <th>Status</th>
+    <th>PayPal</th>
     <th> SubTotal </th>
     <th>Pay type</th>
     <th>Ref No.</th>
@@ -18,9 +18,9 @@
     <td><%= order.address %></td>
     <td>
       <% if order.is_outstanding %>
-        <%= "!  Pay Pending !" %>
+        <%= "not yet" %>
       <% else %>
-        <%= " Paid v" %>
+        <%= " Tried v" %>
       <% end %>
 
     </td>
@@ -29,7 +29,9 @@
     <td><%= order.id %></td>
      <td><%= l(order.created_at, :format => :short) %></td>
     <td><%= link_to 'Show', order %></td>
-    
+    <% if order.is_outstanding %>
+     <td><%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), order.paypal_url(order_url(:id => order.id)) %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -25,6 +25,7 @@ gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
 
 gem 'kaminari'
+#gem 'activemerchant', '~> 1.9.0'
 
 group :development, :test do
   gem 'sqlite3'

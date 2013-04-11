@@ -17,27 +17,45 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Outstanding order" do
           ul do
-            Order.where(:is_outstanding=>true).map do |post|
-              li link_to(post.id, admin_order_path(post))  
-              div post.name
+            
+            Order.where(:is_outstanding=>true).order("subtotal DESC").map do |post|
+              li ( link_to("#{post.user.email} ID(#{post.id}) total #{number_to_currency(post.subtotal)} ", admin_order_path(post))  ) 
+              
             end
+          
           end
         end
       end
 
+
+
+
+
+
+
       column do
-        panel "Info" do
-          para "Welcome to ActiveAdmin."
+        panel "Customer details" do
+
+          ul do
+
+            User.all.map do |user|
+              
+            li user.email
+            div link_to("details", admin_user_path(user))  
+            end
+
+          end
+
         end
       end
+
+
 
       column do
         panel "Info" do
           para "Welcome to ActiveAdmin."
         end
-                panel "Info" do
-          para "Welcome to ActiveAdmin."
-        end
+
       end
     
     end
