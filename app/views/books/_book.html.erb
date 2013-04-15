@@ -8,7 +8,7 @@
    <%= image_tag book.image_url %>
 </p>
                 <p>
- <%= book.description %>
+ <%=truncate(book.description, :length => 157) %>
                 </p>
              
 

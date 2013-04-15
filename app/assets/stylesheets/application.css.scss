@@ -1,0 +1,141 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+html {
+  background-color: #D3D8DE;
+}
+
+body {
+  background-image: url('/assets/top-bckgrnd.png');
+  background-position: center top, center bottom;
+  background-repeat: no-repeat;
+  background-size: 850px;
+  background-color: #fff;
+  margin: 0 auto;
+  width: 850px;
+}
+
+li {
+  display: inline;
+  list-style-type: none;
+}
+
+#midNav a, #bottomNav a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+#logo {
+  margin-left: 30px;
+  height: 181px;
+}
+
+#searchbar {
+  float: right;
+  margin-top: 5px;
+  color: #FFF;
+}
+
+#canvas {
+  float: right;
+  margin-top: -187px;
+}
+
+#top {
+  height: 180px;
+}
+
+#midNav {
+  nav {
+    margin-top: -44px;
+    height: 47px;
+    background: #7199ef;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #7199ef 0%, #553fff 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7199ef), color-stop(100%, #553fff));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #7199ef 0%, #553fff 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #7199ef 0%, #553fff 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #7199ef 0%, #553fff 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #7199ef 0%, #553fff 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7199ef', endColorstr='#553fff',GradientType=0 );
+    /* IE6-9 */
+    ul {
+      width: 850px;
+      height: 40px;
+      font-size: 10px;
+      margin-left: -32.5px;
+    }
+  }
+  li {
+    position: relative;
+    top: 15px;
+    padding-right: 5px;
+    background: url("/assets/menu.png") no-repeat scroll right center transparent;
+    &:last-of-type {
+      background: none;
+    }
+    a {
+      padding: 14px;
+    }
+  }
+  a:hover {
+    background: url("/assets/menu_a.png") repeat-x top;
+  }
+}
+
+#container {
+  background: #FFF;
+  width: 845px;
+  padding-left: 5px;
+}
+
+#bottomInfo {
+  background-image: url('/assets/bot-bckgrnd.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 115px;
+}
+
+#bottomNav {
+  float: left;
+  margin-top: 65px;
+  margin-left: -20px;
+  font-size: 14px;
+  li {
+    padding-right: 5px;
+    background: url("/assets/menu.png") no-repeat scroll right center transparent;
+    &:last-of-type {
+      background: none;
+    }
+  }
+}
+
+#bottomInfo p {
+  float: right;
+  margin-top: 47.5px;
+  margin-right: 50px;
+  color: #5F5F94;
+  background: #FCF2EE;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  width: 425px;
+  text-align: center;
+}

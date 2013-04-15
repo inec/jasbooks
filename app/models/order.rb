@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   PAYMENT_TYPES = [ "Check", "Credit card", "Purchase order" ]
-  attr_accessible :address, :email, :name, :pay_type, :is_outstanding, :user_id
+  attr_accessible :address, :email, :name, :pay_type, :is_outstanding, :user_id, :subtotal
   has_many :cart_items, dependent: :destroy
   belongs_to :user
   validates :pay_type, inclusion: PAYMENT_TYPES
@@ -44,7 +44,7 @@ def paypal_url(return_url)
       :invoice => id
     }
     the_order.is_outstanding=false
-    #the_order.save
+    the_order.save
       values.merge!({
        "amount_1" => the_order.subtotal,
        "item_name_1" => "Jasbook order #{the_order.id}",
