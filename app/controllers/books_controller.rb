@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   def index
 
    # @regrets=[abc,2]
-    @books = Book.order("id").page(params[:page]).per(3)
+    @books = Book.order("id").page(params[:page]).per(4)
 
     respond_to do |format|
       format.html # index.html.erb

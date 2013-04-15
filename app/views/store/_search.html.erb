@@ -1,5 +1,5 @@
-<%= form_tag results_path do %>
-  <%= label_tag "Search" %>
+<%= form_tag results_path :id=> 'Search' do %>
+  <%= label_tag  %>
   <%= text_field_tag :keyword %>
   <%= submit_tag "Search" %>
 <% end %>
