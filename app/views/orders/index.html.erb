@@ -6,6 +6,8 @@
     <th>Address</th>
     <th>PayPal</th>
     <th> SubTotal </th>
+            <th> Province </th>
+        <th> TaxAMT </th>
     <th>Pay type</th>
     <th>Ref No.</th>
     <th>Date</th>
@@ -25,6 +27,8 @@
 
     </td>
      <td><%=  number_to_currency(order.subtotal) %></td>
+               <td><%=  order.province.name %></td>
+          <td><%=  number_to_currency(order.tax_amount) %></td>
     <td><%= order.pay_type %></td>
     <td><%= order.id %></td>
      <td><%= l(order.created_at, :format => :short) %></td>

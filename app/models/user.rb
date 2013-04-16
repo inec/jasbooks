@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :carts
   has_many :orders
+  def name
+    self.email
+  end
 end

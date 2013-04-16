@@ -1,5 +1,8 @@
 Jasbooks::Application.routes.draw do
   
+  resources :provinces
+
+
   devise_for :users
 #devise_for :admin_users
   resources :orders

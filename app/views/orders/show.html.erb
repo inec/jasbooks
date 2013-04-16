@@ -22,5 +22,21 @@
   <b>Pay type:</b>
   <%= @order.pay_type %>
 </p>
+<p>
+  <b>Province:</b>
+  <%= @order.province.name %>
+</p>
+<p>
+  <b>SubTotal:</b>
+  <%= number_to_currency @order.subtotal %>
+</p>
+<p>
+  <b>Tax Amount:</b>
+  <%= number_to_currency @order.tax_amount %>
+</p>
+
+<table>
+<%= render @order.cart_items %>
+</table>
 
 

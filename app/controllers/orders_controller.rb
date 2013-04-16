@@ -6,6 +6,12 @@ class OrdersController < InheritedResources::Base
       @orders=Order.where(:user_id=>current_user.id)
     end
     
+
+  # def edit
+  #   @orders = Book.find(params[:id])
+    
+  # end
+
     def show
        @order = Order.find(params[:id])
        #@order = order.find(18)
@@ -13,10 +19,8 @@ class OrdersController < InheritedResources::Base
     end
 
 	  def new
-
+     @provinces = Province.order(:name)
     @cart = current_cart
-    #@total=@cart.total_price
-    #@total=13
 
     if @cart.cart_items.empty?
       redirect_to book_url, notice: "Your cart is empty"
@@ -37,7 +41,7 @@ class OrdersController < InheritedResources::Base
     @order.add_cart_items_from_cart(current_cart)
     @order.user_id=current_user.id
     @order.subtotal=current_cart.total_price
-   
+    @order.tax_amount=@order.subtotal* @order.province.total_tax_rate
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
